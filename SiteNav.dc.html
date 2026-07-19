@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/grow-your-pt-practice-5942f31d-0fa7-42e2-93c0-83abe9aa1c29/tokens/tokens.css">
+  <link rel="stylesheet" href="_ds/grow-your-pt-practice-5942f31d-0fa7-42e2-93c0-83abe9aa1c29/styles.css">
+  <script src="_ds/grow-your-pt-practice-5942f31d-0fa7-42e2-93c0-83abe9aa1c29/_ds_bundle.js"></script>
+</helmet>
+<header style="background: var(--white); border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 50">
+  <div style="max-width: var(--content-max); margin: 0 auto; padding: 0 var(--space-5); height: 76px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-5)">
+    <a href="Home.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
+      <span style="width: 32px; height: 32px; border-radius: 8px; background: var(--navy-800); color: var(--teal-500); display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; font-size: 15px; letter-spacing: -0.02em">pt</span>
+      <span style="font-family: var(--font-display); font-weight: 800; font-size: 15px; line-height: 1.15; letter-spacing: -0.01em; color: var(--navy-800); text-transform: lowercase">grow your<br>practice</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: var(--space-6)">
+      <sc-for list="{{ links }}" as="lnk" hint-placeholder-count="3">
+        <a href="{{ lnk.href }}" style="{{ lnk.style }}">{{ lnk.label }}</a>
+      </sc-for>
+      <a class="btn btn--primary" href="Apply.dc.html">Apply to work with us</a>
+    </nav>
+  </div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:76},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;results&quot;,&quot;about&quot;,&quot;apply&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.active ?? "home";
+    const base = { fontFamily: "var(--font-body)", fontSize: "15px", fontWeight: 500, textDecoration: "none", color: "var(--gray-600)" };
+    const on = { ...base, color: "var(--navy-800)", fontWeight: 600 };
+    const links = [
+      { label: "Home", href: "Home.dc.html", key: "home" },
+      { label: "Results", href: "Results.dc.html", key: "results" },
+      { label: "About", href: "About.dc.html", key: "about" },
+    ].map(l => ({ ...l, style: l.key === active ? on : base }));
+    return { links };
+  }
+}
+</script>
+</body>
+</html>

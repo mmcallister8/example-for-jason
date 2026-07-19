@@ -1,0 +1,174 @@
+/* Grow Your PT Practice — base styles v1.0
+   Load order: fonts → tokens → base. Components use tokens only; no hardcoded hex. */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap");
+@import "./tokens/tokens.css";
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Type scale (desktop sizes; mobile in parentheses in guidelines) ---------- */
+.display, h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; }
+
+.display { font-size: 56px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+h1 { font-size: 44px; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
+h2 { font-size: 34px; font-weight: 800; line-height: 1.2; letter-spacing: -0.01em; }
+h3 { font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; }
+h4 { font-size: 19px; font-weight: 700; line-height: 1.4; }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal-700);
+}
+.on-navy .eyebrow, .eyebrow--navy-bg { color: var(--teal-400); }
+
+.body-lg { font-size: 19px; line-height: 1.6; }
+.body-sm { font-size: 14px; line-height: 1.55; }
+
+.stat {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Highlight one phrase per heading */
+.hl { color: var(--teal-600); }          /* on light backgrounds */
+.on-navy .hl { color: var(--teal-400); } /* on navy backgrounds */
+
+/* ---------- Navy sections ---------- */
+.on-navy { background: var(--navy-800); color: var(--white); }
+.on-navy h1, .on-navy h2, .on-navy h3, .on-navy h4, .on-navy .display { color: var(--white); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 44px;
+  padding: 0 20px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--duration-hover) var(--ease-brand),
+    border-color var(--duration-hover) var(--ease-brand),
+    color var(--duration-hover) var(--ease-brand);
+}
+.btn:focus-visible { outline: 2px solid var(--teal-500); outline-offset: 2px; }
+.btn--lg { height: 52px; padding: 0 28px; }
+
+/* Primary on light backgrounds: teal-700 fill, white text (6.0:1) */
+.btn--primary { background: var(--teal-700); color: var(--white); }
+.btn--primary:hover { background: var(--teal-800); }
+
+/* Primary on navy backgrounds: teal-500 fill, navy-900 text (6.9:1) */
+.btn--primary-navy-bg { background: var(--teal-500); color: var(--navy-900); }
+.btn--primary-navy-bg:hover { background: var(--teal-400); }
+
+/* Secondary on light */
+.btn--secondary { background: transparent; color: var(--navy-800); box-shadow: inset 0 0 0 1.5px var(--navy-800); }
+.btn--secondary:hover { background: var(--navy-50); }
+
+/* Secondary on navy */
+.btn--secondary-navy-bg { background: transparent; color: var(--white); box-shadow: inset 0 0 0 1.5px var(--white); }
+.btn--secondary-navy-bg:hover { background: rgba(255, 255, 255, 0.08); }
+
+/* Ghost / tertiary */
+.btn--ghost { background: transparent; color: var(--teal-700); }
+.btn--ghost:hover { background: var(--teal-50); }
+
+/* ---------- Links ---------- */
+a.link { color: var(--teal-700); text-decoration: none; }
+a.link:hover { text-decoration: underline; }
+.on-navy a.link { color: var(--teal-400); }
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.badge--default { background: var(--navy-50); color: var(--navy-700); }
+.badge--accent { background: var(--teal-100); color: var(--teal-800); }
+.badge--premium { background: var(--gold-500); color: var(--navy-900); }
+.badge--success-stat { background: var(--teal-50); color: var(--teal-800); }
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5);
+}
+.card--bordered { border: 1px solid var(--gray-200); } /* on offwhite backgrounds */
+.card--clickable { transition: box-shadow var(--duration-state) var(--ease-brand), transform var(--duration-state) var(--ease-brand); }
+.card--clickable:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.card--featured { border: 2px solid var(--teal-500); } /* featured pricing tier only, paired with gold badge */
+
+.icon-tile {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--teal-100);
+  color: var(--teal-700);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Forms ---------- */
+.field-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--ink);
+}
+.input::placeholder { color: var(--gray-500); }
+.input:focus { outline: none; border-color: var(--teal-600); box-shadow: 0 0 0 3px var(--teal-100); }
+.input--error { border-color: var(--error); }
+.field-error { font-size: 14px; color: var(--error); margin-top: 6px; }
+
+/* ---------- Stat blocks (navy sections) ---------- */
+.stat-block .stat { color: var(--teal-400); }
+.stat-block .stat-label { color: var(--navy-200); font-size: 15px; }

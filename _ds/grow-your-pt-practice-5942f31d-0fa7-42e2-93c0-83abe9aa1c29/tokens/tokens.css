@@ -1,0 +1,88 @@
+/* Grow Your PT Practice — design tokens v1.0
+   Source: gyptp-design-system.md §2, §4. No hardcoded hex in components — use these variables. */
+:root {
+  /* Navy — primary brand color, backgrounds, headings */
+  --navy-900: #081826;
+  --navy-800: #0F2A43; /* base */
+  --navy-700: #16395B;
+  --navy-600: #1E4A75;
+  --navy-500: #2A5C8F;
+  --navy-400: #4B7BAB;
+  --navy-300: #7BA0C4;
+  --navy-200: #AEC7DC;
+  --navy-100: #D8E4EF;
+  --navy-50: #EFF4F9;
+
+  /* Teal — brand accent and action color */
+  --teal-900: #0A362E;
+  --teal-800: #0B5546;
+  --teal-700: #10705D; /* action color on light backgrounds */
+  --teal-600: #188A74;
+  --teal-500: #2BB39A; /* base accent — NEVER a fill behind white text */
+  --teal-400: #52C4AE;
+  --teal-300: #7ED4C3;
+  --teal-200: #ABE3D8;
+  --teal-100: #D4F1EB;
+  --teal-50: #EDF9F6;
+
+  /* Gold — premium accent, use sparingly (max twice per page) */
+  --gold-700: #8A6425;
+  --gold-600: #A97B2C;
+  --gold-500: #D8A24A; /* base — always with navy-900 text */
+  --gold-300: #E8C283;
+  --gold-100: #F7EBD6;
+
+  /* Neutrals — navy-tinted grays */
+  --ink: #0F2A43;      /* primary text (same as navy-800) */
+  --gray-700: #3D4E5C; /* strong secondary text */
+  --gray-600: #4A5A68; /* secondary text */
+  --gray-500: #7A8794; /* muted text, captions */
+  --gray-300: #C3CCD4; /* disabled text, strong borders */
+  --gray-200: #DDE4EA; /* default borders, dividers */
+  --gray-100: #ECF0F3; /* subtle fills, hover states */
+  --offwhite: #F4F6F8; /* page background, alternate sections */
+  --white: #FFFFFF;    /* cards, primary surfaces */
+
+  /* Semantic */
+  --success: #1E9E5A;
+  --warning: #C77E14;
+  --error: #D64545;
+  --info: var(--navy-500);
+
+  /* Type families */
+  --font-display: Manrope, Inter, -apple-system, "Segoe UI", sans-serif;
+  --font-body: Inter, -apple-system, "Segoe UI", sans-serif;
+
+  /* Spacing scale (px): 4, 8, 12, 16, 24, 32, 48, 64, 96, 128 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Radius */
+  --radius-sm: 6px;   /* badges, inputs, small chips */
+  --radius-md: 8px;   /* buttons, form fields */
+  --radius-lg: 14px;  /* cards, testimonial blocks */
+  --radius-xl: 20px;  /* hero media, large feature panels */
+  --radius-full: 999px; /* pills, avatars */
+
+  /* Shadows — subtle, cards only; none on navy sections */
+  --shadow-sm: 0 1px 2px rgba(15, 42, 67, 0.06);
+  --shadow-md: 0 4px 12px rgba(15, 42, 67, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 42, 67, 0.12); /* modals, sticky CTA bars only */
+
+  /* Motion */
+  --duration-hover: 120ms;
+  --duration-state: 200ms;
+  --duration-reveal: 350ms;
+  --ease-brand: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Layout */
+  --content-max: 1140px;
+}

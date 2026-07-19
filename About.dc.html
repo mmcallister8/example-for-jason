@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/grow-your-pt-practice-5942f31d-0fa7-42e2-93c0-83abe9aa1c29/tokens/tokens.css">
+  <link rel="stylesheet" href="_ds/grow-your-pt-practice-5942f31d-0fa7-42e2-93c0-83abe9aa1c29/styles.css">
+  <script src="_ds/grow-your-pt-practice-5942f31d-0fa7-42e2-93c0-83abe9aa1c29/_ds_bundle.js"></script>
+  <script src="image-slot.js"></script>
+  <style>a { color: var(--teal-700); } a:hover { color: var(--teal-800); }</style>
+</helmet>
+<div style="background: var(--white)">
+<dc-import name="SiteNav" active="about" hint-size="100%,76px"></dc-import>
+
+<section class="on-navy" data-screen-label="About hero">
+  <div style="max-width: var(--content-max); margin: 0 auto; padding: var(--space-9) var(--space-5); display: flex; flex-direction: column; gap: var(--space-4); align-items: flex-start">
+    <div class="eyebrow">About us</div>
+    <h1 class="display" style="max-width: 22ch; text-wrap: pretty">We only work with <span class="hl">cash PT practices</span>. That's the whole point.</h1>
+    <p class="body-lg" style="margin: 0; color: var(--navy-200); max-width: 60ch">No dentists, no gyms, no roofers. Every test we run, every hook we write, and every dollar we manage teaches us more about one thing: getting cash-pay patients to book an evaluation.</p>
+  </div>
+</section>
+
+<section data-screen-label="Story" style="background: var(--white)">
+  <div style="max-width: var(--content-max); margin: 0 auto; padding: var(--space-9) var(--space-5); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center">
+    <image-slot id="founder-photo" shape="rounded" radius="20" style="width: 100%; aspect-ratio: 4/3" placeholder="Founder or team photo goes here"></image-slot>
+    <div style="display: flex; flex-direction: column; gap: var(--space-4)">
+      <div class="eyebrow">Why we exist</div>
+      <h2 style="text-wrap: pretty">Built after watching good clinicians <span class="hl">get burned by bad ads</span></h2>
+      <p style="margin: 0; color: var(--gray-600)">We started in 2023 after running marketing inside a cash practice and watching three generic agencies burn its budget on leads that never showed. The playbook that finally worked, cash-pay qualification up front, self-scheduling, and follow-up within 5 minutes, became this agency.</p>
+      <p style="margin: 0; color: var(--gray-600)">Since then we've run campaigns for 31 practices and booked more than 2,400 evaluations. We stay small on purpose: 4 new clients a month, one practice per market, so we never compete against you with your own playbook.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Principles" style="background: var(--offwhite)">
+  <div style="max-width: var(--content-max); margin: 0 auto; padding: var(--space-9) var(--space-5); display: flex; flex-direction: column; gap: var(--space-7)">
+    <div style="max-width: 640px; display: flex; flex-direction: column; gap: var(--space-3)">
+      <div class="eyebrow">How we operate</div>
+      <h2 style="text-wrap: pretty">Four rules <span class="hl">we don't break</span></h2>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5)">
+      <sc-for list="{{ principles }}" as="p" hint-placeholder-count="4">
+        <div class="card card--bordered" style="display: flex; flex-direction: column; gap: var(--space-3)">
+          <h4 style="margin: 0">{{ p.title }}</h4>
+          <p class="body-sm" style="margin: 0; color: var(--gray-600)">{{ p.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Team" style="background: var(--white)">
+  <div style="max-width: var(--content-max); margin: 0 auto; padding: var(--space-9) var(--space-5); display: flex; flex-direction: column; gap: var(--space-7)">
+    <div style="max-width: 640px; display: flex; flex-direction: column; gap: var(--space-3)">
+      <div class="eyebrow">The team</div>
+      <h2 style="text-wrap: pretty">Small team, <span class="hl">senior people</span></h2>
+      <p style="margin: 0; color: var(--gray-600)">No account managers passing notes. The people below build and run your campaign.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5)">
+      <sc-for list="{{ team }}" as="member" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: var(--space-4)">
+          <image-slot id="{{ member.slotId }}" shape="rounded" radius="14" style="width: 100%; aspect-ratio: 1" placeholder="{{ member.placeholder }}"></image-slot>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <div style="font-weight: 600; font-size: 16px; color: var(--ink)">{{ member.name }}</div>
+            <div class="body-sm" style="color: var(--teal-700); font-weight: 500">{{ member.role }}</div>
+            <p class="body-sm" style="margin: 6px 0 0; color: var(--gray-600)">{{ member.bio }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section class="on-navy" data-screen-label="About CTA">
+  <div style="max-width: var(--content-max); margin: 0 auto; padding: var(--space-9) var(--space-5); display: flex; flex-direction: column; gap: var(--space-5); align-items: center; text-align: center">
+    <h2 class="display" style="max-width: 22ch; text-wrap: pretty">If we sound like your kind of people, <span class="hl">apply</span></h2>
+    <p class="body-lg" style="margin: 0; color: var(--navy-200); max-width: 52ch">3 minutes to apply. We reply within one business day, even if the answer is no.</p>
+    <a class="btn btn--lg btn--primary-navy-bg" href="Apply.dc.html">Apply to work with us</a>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      principles: [
+        { title: "Booked evaluations are the only metric", body: "We report cost per booked evaluation and revenue attributed to the campaign. If those numbers aren't good, nothing else we show you matters." },
+        { title: "One practice per market", body: "We never run campaigns for two clinics competing for the same patients. Your market is yours as long as you're a client." },
+        { title: "Your accounts, your data", body: "Ad account, pixel, and lead data live under your business. If we ever part ways, you keep everything." },
+        { title: "No long contracts", body: "Month to month after the first 90 days. We keep clients by performing, not by locking them in." },
+      ],
+      team: [
+        { slotId: "team-1", placeholder: "Headshot: founder", name: "Jordan Hale", role: "Founder, head of strategy", bio: "Ran growth inside a cash PT practice before starting the agency. Leads every strategy call and market analysis." },
+        { slotId: "team-2", placeholder: "Headshot: media buyer", name: "Priya Nair", role: "Senior media buyer", bio: "Manages every ad account. Has spent $1.4M on Meta ads for PT practices, and nothing else, since 2023." },
+        { slotId: "team-3", placeholder: "Headshot: copy + funnels", name: "Tom Okafor", role: "Copy and funnels", bio: "Writes the ads, landing pages, and the 14-day follow-up sequences. Former front-desk lead, so the copy books, not just clicks." },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

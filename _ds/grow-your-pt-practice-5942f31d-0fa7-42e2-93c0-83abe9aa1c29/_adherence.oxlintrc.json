@@ -1,0 +1,182 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": []
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Manrope|Inter))/i]",
+        "message": "Font not provided by the design system. Available: Manrope, Inter."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--content-max",
+      "--duration-hover",
+      "--duration-reveal",
+      "--duration-state",
+      "--ease-brand",
+      "--error",
+      "--font-body",
+      "--font-display",
+      "--gold-100",
+      "--gold-300",
+      "--gold-500",
+      "--gold-600",
+      "--gold-700",
+      "--gray-100",
+      "--gray-200",
+      "--gray-300",
+      "--gray-500",
+      "--gray-600",
+      "--gray-700",
+      "--info",
+      "--ink",
+      "--navy-100",
+      "--navy-200",
+      "--navy-300",
+      "--navy-400",
+      "--navy-50",
+      "--navy-500",
+      "--navy-600",
+      "--navy-700",
+      "--navy-800",
+      "--navy-900",
+      "--offwhite",
+      "--radius-full",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-sm",
+      "--radius-xl",
+      "--shadow-lg",
+      "--shadow-md",
+      "--shadow-sm",
+      "--space-1",
+      "--space-10",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--space-9",
+      "--success",
+      "--teal-100",
+      "--teal-200",
+      "--teal-300",
+      "--teal-400",
+      "--teal-50",
+      "--teal-500",
+      "--teal-600",
+      "--teal-700",
+      "--teal-800",
+      "--teal-900",
+      "--warning",
+      "--white"
+    ],
+    "tokenKinds": {
+      "--navy-900": "color",
+      "--navy-800": "color",
+      "--navy-700": "color",
+      "--navy-600": "color",
+      "--navy-500": "color",
+      "--navy-400": "color",
+      "--navy-300": "color",
+      "--navy-200": "color",
+      "--navy-100": "color",
+      "--navy-50": "color",
+      "--teal-900": "color",
+      "--teal-800": "color",
+      "--teal-700": "color",
+      "--teal-600": "color",
+      "--teal-500": "color",
+      "--teal-400": "color",
+      "--teal-300": "color",
+      "--teal-200": "color",
+      "--teal-100": "color",
+      "--teal-50": "color",
+      "--gold-700": "color",
+      "--gold-600": "color",
+      "--gold-500": "color",
+      "--gold-300": "color",
+      "--gold-100": "color",
+      "--ink": "color",
+      "--gray-700": "color",
+      "--gray-600": "color",
+      "--gray-500": "color",
+      "--gray-300": "color",
+      "--gray-200": "color",
+      "--gray-100": "color",
+      "--offwhite": "color",
+      "--white": "color",
+      "--success": "color",
+      "--warning": "color",
+      "--error": "color",
+      "--info": "color",
+      "--font-display": "font",
+      "--font-body": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--space-9": "spacing",
+      "--space-10": "spacing",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-xl": "radius",
+      "--radius-full": "radius",
+      "--shadow-sm": "shadow",
+      "--shadow-md": "shadow",
+      "--shadow-lg": "shadow",
+      "--duration-hover": "other",
+      "--duration-state": "other",
+      "--duration-reveal": "other",
+      "--ease-brand": "other",
+      "--content-max": "spacing"
+    },
+    "fontFamilies": [
+      "Inter",
+      "Manrope"
+    ]
+  }
+}
