@@ -78,7 +78,10 @@
           <label class="field-label" for="f-goal">What would a full schedule change for you?</label>
           <textarea class="input" id="f-goal" name="goal" rows="3" style="height: auto; padding: var(--space-3) var(--space-4); resize: vertical" placeholder="Hire a second PT, drop my last insurance contract..."></textarea>
         </div>
-        <button class="btn btn--lg btn--primary" type="submit" style="width: 100%">Send application</button>
+        <sc-if value="{{ submitError }}" hint-placeholder-val="{{ false }}">
+          <p role="alert" style="margin: 0; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: #fef2f2; color: #991b1b; font-size: 14px">{{ submitError }}</p>
+        </sc-if>
+        <button class="btn btn--lg btn--primary" type="submit" disabled="{{ submitting }}" aria-busy="{{ submitting }}" style="width: 100%">{{ submitButtonLabel }}</button>
         <p class="body-sm" style="margin: 0; color: var(--gray-500); text-align: center">No spam, no sales sequence. One reply from a real person.</p>
       </form>
     </sc-if>
@@ -90,12 +93,37 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { submitted: false };
+  state = { submitted: false, submitting: false, submitError: "" };
   renderVals() {
     return {
       submitted: this.state.submitted,
       notSubmitted: !this.state.submitted,
-      handleSubmit: (e) => { e.preventDefault(); this.setState({ submitted: true }); },
+      submitting: this.state.submitting,
+      submitError: this.state.submitError,
+      submitButtonLabel: this.state.submitting ? "Sending..." : "Send application",
+      handleSubmit: async (e) => {
+        e.preventDefault();
+        if (this.state.submitting) return;
+
+        const formData = Object.fromEntries(new FormData(e.currentTarget).entries());
+        this.setState({ submitting: true, submitError: "" });
+
+        try {
+          const response = await fetch("https://services.leadconnectorhq.com/hooks/BN2s3CvNJTZ1axfsdLh4/webhook-trigger/9fbb81b7-2217-422b-81f0-61d89672b4fa", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          });
+
+          if (!response.ok) throw new Error(`Webhook returned ${response.status}`);
+          this.setState({ submitted: true, submitting: false });
+        } catch {
+          this.setState({
+            submitting: false,
+            submitError: "We couldn't send your application. Please try again.",
+          });
+        }
+      },
       next: [
         { n: 1, title: "We review your application", body: "We check your market, model, and capacity. Reply within one business day." },
         { n: 2, title: "30-minute strategy call", body: "If it's a fit, we map your offer, budget, and realistic evaluation targets. No pitch deck." },
